@@ -794,10 +794,20 @@ class Canvas(QtWidgets.QWidget):  # pylint: disable=too-many-public-methods, too
                 wrap_rect = QtCore.QRectF(min_x, min_y, max_x - min_x, max_y - min_y)
                 p.drawRect(wrap_rect)
 
-        for shape in self.shapes:
+        colors = [(255, 0, 0),  # Red
+                  (0, 255, 0),  # Green
+                  (0, 0, 255),  # Blue
+                  (255, 255, 0),  # Yellow
+                  (128, 0, 255)]  # Purple
+
+        for index, shape in enumerate(self.shapes):
             if (shape.selected or not self._hide_backround) and self.is_visible(shape):
-                shape.fill = shape.selected or shape == self.h_hape
+                shape.fill = True
+                color = colors[index % len(colors)]
+                shape.line_color = QtGui.QColor(color[0], color[1], color[2], 200)
+                shape.fill_color = QtGui.QColor(255, 255, 255, 125)
                 shape.paint(p)
+
         if self.current:
             self.current.paint(p)
             self.line.paint(p)
