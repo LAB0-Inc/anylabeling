@@ -2016,7 +2016,7 @@ class LabelingWidget(LabelDialog):
         save_config(self._config)
 
     def on_new_brightness_contrast(self, qimage):
-        self.canvas.load_pixmap(QtGui.QPixmap.fromImage(qimage), clear_shapes=False)
+        self.canvas.load_pixmap(QtGui.QPixmap.fromImage(qimage, QtCore.Qt.NoFormatConversion), clear_shapes=False)
 
     def brightness_contrast(self, _):
         dialog = BrightnessContrastDialog(
@@ -2152,7 +2152,7 @@ class LabelingWidget(LabelDialog):
         self.filename = filename
         if self._config["keep_prev"]:
             prev_shapes = self.canvas.shapes
-        self.canvas.load_pixmap(QtGui.QPixmap.fromImage(image))
+        self.canvas.load_pixmap(QtGui.QPixmap.fromImage(image, QtCore.Qt.NoFormatConversion))
         flags = dict.fromkeys(self._config["flags"] or [], False)
         if self.label_file:
             self.load_labels(self.label_file.shapes)

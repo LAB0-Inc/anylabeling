@@ -50,9 +50,8 @@ class LabelFile:
             ext = osp.splitext(filename)[1].lower()
             if ext in [".jpg", ".jpeg"]:
                 image_pil = image_pil.convert("RGB")
-                img_format = "JPEG"
-            else:
-                img_format = "PNG"
+
+            img_format = "PNG"  # Pick a lossless format for this buffer.
             image_pil.save(f, format=img_format)
             f.seek(0)
             return f.read()
@@ -87,6 +86,7 @@ class LabelFile:
             else:
                 # relative path from label file to relative path from cwd
                 image_path = osp.join(osp.dirname(filename), data["imagePath"])
+                print(f'LOADING {image_path}')
                 image_data = self.load_image_file(image_path)
             flags = data.get("flags") or {}
             image_path = data["imagePath"]

@@ -66,7 +66,7 @@ class FileDialogPreview(QtWidgets.QFileDialog):
                         self.label_preview.width() - 30,
                         self.label_preview.height() - 30,
                         QtCore.Qt.KeepAspectRatio,
-                        QtCore.Qt.SmoothTransformation,
+                        QtCore.Qt.Qt.FastTransformation,
                     )
                 )
                 self.label_preview.label.setAlignment(QtCore.Qt.AlignCenter)

@@ -706,8 +706,9 @@ class Canvas(QtWidgets.QWidget):  # pylint: disable=too-many-public-methods, too
 
         p = self._painter
         p.begin(self)
-        p.setRenderHint(QtGui.QPainter.Antialiasing)
-        p.setRenderHint(QtGui.QPainter.SmoothPixmapTransform)
+        p.setRenderHint(QtGui.QPainter.Antialiasing, False)
+        p.setRenderHint(QtGui.QPainter.SmoothPixmapTransform, False)
+
 
         p.scale(self.scale, self.scale)
         p.translate(self.offset_to_center())
