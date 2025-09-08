@@ -8,7 +8,7 @@ keep_prev_scale: false
 keep_prev_brightness: false
 keep_prev_contrast: false
 auto_use_last_label: true
-show_cross_line: true
+show_cross_line: false
 show_groups: true
 show_texts: true
 logger_level: info
@@ -66,7 +66,7 @@ fit_to_content:
   row: false
 
 # canvas
-epsilon: 10.0
+epsilon: 5.0
 canvas:
   # None: do nothing
   # close: close polygon
