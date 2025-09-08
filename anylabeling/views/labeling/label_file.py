@@ -86,7 +86,6 @@ class LabelFile:
             else:
                 # relative path from label file to relative path from cwd
                 image_path = osp.join(osp.dirname(filename), data["imagePath"])
-                print(f'LOADING {image_path}')
                 image_data = self.load_image_file(image_path)
             flags = data.get("flags") or {}
             image_path = data["imagePath"]

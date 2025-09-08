@@ -95,7 +95,7 @@ class Canvas(QtWidgets.QWidget):  # pylint: disable=too-many-public-methods, too
         self._last_update_time = time()
         self._update_interval = 0.016  # ~60Hz update rate
         self.setFocusPolicy(QtCore.Qt.WheelFocus)
-        self.show_cross_line = True
+        self.show_cross_line = False
         self.show_shape_groups = True
         self.show_texts = True
 
