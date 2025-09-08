@@ -747,7 +747,7 @@ class LabelingWidget(LabelDialog):
         fit_window.setChecked(Qt.Checked)
         self.scalers = {
             self.FIT_WINDOW: self.scale_fit_window,
-            self.FIT_WIDTH: self.scale_fit_width,
+            self.FIT_WIDTH: self.scale_fit_window,  # We do not like that, we want the default zoom to have the whole image visible.
             # Set to one to scale to 100% when loading files.
             self.MANUAL_ZOOM: lambda: 1,
         }
@@ -2246,7 +2246,7 @@ class LabelingWidget(LabelDialog):
 
     def scale_fit_window(self):
         """Figure out the size of the pixmap to fit the main widget."""
-        e = 2.0  # So that no scrollbars are generated.
+        e = 100.0  # So that no scrollbars are generated.
         w1 = self.central_widget().width() - e
         h1 = self.central_widget().height() - e
         wh_ratio1 = w1 / h1
