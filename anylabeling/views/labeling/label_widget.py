@@ -523,6 +523,7 @@ class LabelingWidget(LabelDialog):
         hide_all = create_action(
             self.tr("&Hide\nPolygons"),
             functools.partial(self.toggle_polygons, False),
+            shortcuts["hide_all"],
             icon="eye",
             tip=self.tr("Hide all polygons"),
             enabled=False,
@@ -530,6 +531,7 @@ class LabelingWidget(LabelDialog):
         show_all = create_action(
             self.tr("&Show\nPolygons"),
             functools.partial(self.toggle_polygons, True),
+            shortcuts["show_all"],
             icon="eye",
             tip=self.tr("Show all polygons"),
             enabled=False,
@@ -826,6 +828,8 @@ class LabelingWidget(LabelDialog):
             zoom_actions=zoom_actions,
             open_next_image=open_next_image,
             open_prev_image=open_prev_image,
+            show_all=show_all,
+            hide_all=hide_all,
             file_menu_actions=(open_, opendir, save, save_as, close),
             tool=(),
             # XXX: need to add some actions here to activate the shortcut
@@ -841,6 +845,8 @@ class LabelingWidget(LabelDialog):
                 None,
                 toggle_keep_prev_mode,
                 toggle_auto_use_last_label_mode,
+                show_all,
+                hide_all,
             ),
             # menu shown at right click
             menu=(
