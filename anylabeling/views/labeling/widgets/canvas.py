@@ -806,9 +806,9 @@ class Canvas(QtWidgets.QWidget):  # pylint: disable=too-many-public-methods, too
                 shape.fill = True
                 color = colors[index % len(colors)]
                 shape.line_color = QtGui.QColor(color[0], color[1], color[2], 200)
-                if shape.label == 'class_1':  # Box
+                if shape.label == 'class_1' or shape.label == 'box':  # Box
                     shape.fill_color = QtGui.QColor(255, 255, 255, 125)
-                if shape.label == 'class_2':  # Container
+                if shape.label == 'class_2' or shape.label == 'container' :  # Container
                     shape.fill_color = QtGui.QColor(255, 128, 128, 180)
 
                 shape.paint(p)
